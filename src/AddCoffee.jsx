@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 const AddCoffee = () => {
 
   const handlePrevent = event =>{
@@ -11,6 +13,26 @@ const AddCoffee = () => {
     const photo = form.photo.value;
     const details = form.details.value;
     console.log(quantity,name,supplier,test,category,photo,details);
+    const newCoffee = {name,quantity,supplier,test,category,details,photo}
+
+    fetch('http://localhost:5005/coffee',{
+      method: 'POST',
+      headers:{
+         'content-type' : 'application/json'
+      },
+      body: JSON.stringify(newCoffee)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        Swal.fire({
+          title: 'Error!',
+          text: 'Do you want to continue',
+          icon: 'error',
+          confirmButtonText: 'Cool'
+        })
+       
+    })
 
   }
 
