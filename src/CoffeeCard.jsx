@@ -1,44 +1,53 @@
 
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
-const CoffeeCard = ({coffee}) => {
+const CoffeeCard = ({coffee,coffees, setCoffees}) => {
 
     const  {_id,name,quantity,supplier,test,category,details,photo} = coffee
 
     const handleDelete = id =>{
-         console.log(id);
-         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
-            if (result.isConfirmed) {
-            //   Swal.fire({
-            //     title: "Deleted!",
-            //     text: "Your file has been deleted.",
-            //     icon: "success"
-            //   });
-            fetch(`http://localhost:5005/coffee/${id}`,{
-              method: "DELETE"
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if(data.deletedCount > 0){
-                      Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-              });
-                }
-            });
-
-            }
+      
+    
+      
+         
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+        //   Swal.fire({
+        //     title: "Deleted!",
+        //     text: "Your file has been deleted.",
+        //     icon: "success"
+        //   });
+        fetch(`http://localhost:5005/coffee/${id}`,{
+          method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.deletedCount > 0){
+                  Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
           });
+          
+          const reamining = coffees.filter(cof => cof._id !== id)
+          console.log(reamining);
+          setCoffees(reamining);
+            }
+        });
+
+        }
+      });
+
+            
     }
 
   return (
