@@ -13,12 +13,13 @@ import UpdateCoffee from './UpdateCoffee';
 import Signup from './Signup';
 import Authprovider from './Authprovider';
 import Users from './Users';
+import Apk from './Apk';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Apps></Apps>,
-    loader: ()=> fetch('http://localhost:5005/coffee')
+    loader: ()=> fetch('https://module-56-2.vercel.app/coffee')
   },
   {
     path: "/addCoffee",
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
   {
      path:"/updateCoffee/:id",
      element: <UpdateCoffee></UpdateCoffee>,
-     loader : ({params})=> fetch(`http://localhost:5005/coffee/${params.id}`)
+     loader : ({params})=> fetch(`https://module-56-2-27osuso4q-nafis2000s-projects-efe39630.vercel.app/coffee/${params.id}`)
   },
   {
     path:'/signup',
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
   {
      path:'/user',
      element:<Users></Users>,
-     loader: ()=> fetch('http://localhost:5005/user')
+     loader: ()=> fetch('https://module-56-2-27osuso4q-nafis2000s-projects-efe39630.vercel.app/user')
   }
 
 ]);
@@ -48,3 +49,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
      </Authprovider>
   </React.StrictMode>,
 )
+

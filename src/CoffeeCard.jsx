@@ -25,7 +25,7 @@ const CoffeeCard = ({coffee,coffees, setCoffees}) => {
         //     text: "Your file has been deleted.",
         //     icon: "success"
         //   });
-        fetch(`http://localhost:5005/coffee/${id}`,{
+        fetch(`https://module-56-2-27osuso4q-nafis2000s-projects-efe39630.vercel.app/coffee/${id}`,{
           method: "DELETE"
         })
         .then(res => res.json())

@@ -17,7 +17,7 @@ const Signup = () => {
              console.log(result.user)
              const createAt = result.user.metadata.creationTime
              const user = {email, createAt}
-             fetch('http://localhost:5005/user',{
+             fetch('https://module-56-2-27osuso4q-nafis2000s-projects-efe39630.vercel.app/user',{
                method: 'POST',
                headers:{
                 'content-type' : 'application/json'
