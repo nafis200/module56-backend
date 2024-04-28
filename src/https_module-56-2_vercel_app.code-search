@@ -1,0 +1,44 @@
+# Query: https://module-56-2.vercel.app
+# Flags: RegExp
+# Excluding: http://localhost:5005
+# ContextLines: 1
+
+8 results - 6 files
+
+src\AddCoffee.jsx:
+  17  
+  18:     fetch('http://localhost:5005/coffee',{
+  19        method: 'POST',
+
+src\CoffeeCard.jsx:
+  27          //   });
+  28:         fetch(`http://localhost:5005/coffee/${id}`,{
+  29            method: "DELETE"
+
+src\main.jsx:
+  21      element: <Apps></Apps>,
+  22:     loader: ()=> fetch('http://localhost:5005/coffee')
+  23    },
+
+  30       element: <UpdateCoffee></UpdateCoffee>,
+  31:      loader : ({params})=> fetch(`http://localhost:5005/coffee/${params.id}`)
+  32    },
+
+  39       element:<Users></Users>,
+  40:      loader: ()=> fetch('http://localhost:5005/user')
+  41    }
+
+src\Signup.jsx:
+  19               const user = {email, createAt}
+  20:              fetch('http://localhost:5005/user',{
+  21                 method: 'POST',
+
+src\UpdateCoffee.jsx:
+  17      
+  18:         fetch(`http://localhost:5005/coffee/${_id}`,{
+  19            method: 'PUT',
+
+src\Users.jsx:
+  8       console.log(id);
+  9:      fetch(`http://localhost:5005/user/${id}`,{
+  10          method: 'DELETE'

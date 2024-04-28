@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "./Authprovider";
+import axios from "axios";
 
 
 const Signup = () => {
@@ -17,7 +18,16 @@ const Signup = () => {
              console.log(result.user)
              const createAt = result.user.metadata.creationTime
              const user = {email, createAt}
-             fetch('https://module-56-2-27osuso4q-nafis2000s-projects-efe39630.vercel.app/user',{
+
+
+             
+
+          
+            //  axios.post('http://localhost:5005/user',user)
+            //  .then(data=> console.log(data.data))
+
+
+             fetch('http://localhost:5005/user',{
                method: 'POST',
                headers:{
                 'content-type' : 'application/json'

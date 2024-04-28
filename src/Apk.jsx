@@ -1,10 +1,8 @@
 
-import React from 'react';
-
 const Apk = () => {
 
     
-    fetch('https://module-56-2-27osuso4q-nafis2000s-projects-efe39630.vercel.app')
+    fetch('http://localhost:5005')
     .then(res=>res.json())
     .then(data => console.log(data))
 
