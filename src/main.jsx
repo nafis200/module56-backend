@@ -14,6 +14,16 @@ import Signup from './Signup';
 import Authprovider from './Authprovider';
 import Users from './Users';
 
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import User2 from './User2';
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,15 +47,24 @@ const router = createBrowserRouter([
      path:'/user',
      element:<Users></Users>,
      loader: ()=> fetch('http://localhost:5005/user')
+  },
+  {
+     path:'/user2',
+     element:<User2></User2>,
+     loader: ()=> fetch('http://localhost:5005/user')
   }
 
 ]);
 
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+     <QueryClientProvider client={queryClient}>
      <Authprovider>
      <RouterProvider router={router} />
      </Authprovider>
+    </QueryClientProvider> 
   </React.StrictMode>,
 )
 
